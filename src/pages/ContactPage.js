@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import axios from 'axios';
 import styled from 'styled-components';
+import emailjs from 'emailjs-com';
 
 const Container = styled.div`
   background: #EEF2F0;
@@ -48,9 +48,18 @@ const ContactPage = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('your_google_sheet_endpoint', formData);
+      // Append your email to the form data
+      const emailData = {
+        ...formData,
+        to_email: 'mukabi339@gmail.com', // Your default email
+        contact_number: '0719271828', // Default contact number
+      };
+
+      await emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', emailData, 'YOUR_USER_ID');
       alert('Message sent successfully!');
+      setFormData({ name: '', email: '', message: '' }); // Clear form after submission
     } catch (error) {
+      console.error('Error sending email:', error);
       alert('Error sending message!');
     }
   };
@@ -86,4 +95,5 @@ const ContactPage = () => {
 };
 
 export default ContactPage;
+
 
