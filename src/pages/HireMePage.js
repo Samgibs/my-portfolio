@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
-import profileImage from '../assets/profile.jpg'; // Ensure the path is correct
+import profileImage from '../assets/profile-image.jpg';
 
 const Container = styled.div`
   background: #EEF2F0;

@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import NavBar from './components/NavBar';
 import Footer from './components/Footer';
 import HomePage from './pages/HomePage';
@@ -10,19 +10,22 @@ import HireMePage from './pages/HireMePage';
 import ContactPage from './pages/ContactPage';
 import './App.css';
 
+
+
 const App = () => (
   <Router>
     <NavBar />
-    <Switch>
-      <Route path="/" exact component={HomePage} />
-      <Route path="/about" component={AboutPage} />
-      <Route path="/projects" component={ProjectsPage} />
-      <Route path="/services" component={ServicesPage} />
-      <Route path="/hire-me" component={HireMePage} />
-      <Route path="/contact" component={ContactPage} />
-    </Switch>
+    <Routes>
+      <Route path="/" element={<HomePage />} />
+      <Route path="/about" element={<AboutPage />} />
+      <Route path="/projects" element={<ProjectsPage />} />
+      <Route path="/services" element={<ServicesPage />} />
+      <Route path="/hire-me" element={<HireMePage />} />
+      <Route path="/contact" element={<ContactPage />} />
+    </Routes>
     <Footer />
   </Router>
 );
 
 export default App;
+

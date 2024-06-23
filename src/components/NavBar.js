@@ -1,28 +1,30 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import NavBar from './components/NavBar';
-import Footer from './components/Footer';
-import HomePage from './pages/HomePage';
-import AboutPage from './pages/AboutPage';
-import ProjectsPage from './pages/ProjectsPage';
-import ServicesPage from './pages/ServicesPage';
-import HireMePage from './pages/HireMePage';
-import ContactPage from './pages/ContactPage';
-import './App.css';
+import { Link } from 'react-router-dom';
+import styled from 'styled-components';
 
-const App = () => (
-  <Router>
-    <NavBar />
-    <Switch>
-      <Route path="/" exact component={HomePage} />
-      <Route path="/about" component={AboutPage} />
-      <Route path="/projects" component={ProjectsPage} />
-      <Route path="/services" component={ServicesPage} />
-      <Route path="/hire-me" component={HireMePage} />
-      <Route path="/contact" component={ContactPage} />
-    </Switch>
-    <Footer />
-  </Router>
+const Nav = styled.nav`
+  background: #282828;
+  color: #63BDB5;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
+
+const NavBar = () => (
+  <Nav>
+    <h1>Samuel Gichohi</h1>
+    <div>
+      <Link to="/">Home</Link>
+      <Link to="/about">About</Link>
+      <Link to="/projects">Projects</Link>
+      <Link to="/services">Services</Link>
+      <Link to="/hire-me">Hire Me</Link>
+      <Link to="/contact">Contact</Link>
+    </div>
+  </Nav>
 );
 
-export default App;
+export default NavBar;
+
+
