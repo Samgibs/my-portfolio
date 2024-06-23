@@ -10,6 +10,7 @@ import HireMePage from './pages/HireMePage';
 import ContactPage from './pages/ContactPage';
 import './App.css';
 
+import TestimonialsPage from './components/TestimonialsPage';
 
 
 const App = () => (
@@ -21,11 +22,11 @@ const App = () => (
       <Route path="/projects" element={<ProjectsPage />} />
       <Route path="/services" element={<ServicesPage />} />
       <Route path="/hire-me" element={<HireMePage />} />
+      <Route path="/testimonials" element={<TestimonialsPage />} />
       <Route path="/contact" element={<ContactPage />} />
     </Routes>
     <Footer />
   </Router>
 );
 
-export default App;   
-
+export default App;
