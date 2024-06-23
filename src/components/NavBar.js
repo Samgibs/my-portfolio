@@ -1,30 +1,42 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHome, faInfoCircle, faProjectDiagram, faConciergeBell, faHandHoldingUsd, faEnvelope } from '@fortawesome/free-solid-svg-icons';
+import './App.css';
 
-const Nav = styled.nav`
-  background: #282828;
-  color: #63BDB5;
-  padding: 10px 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-`;
+
 
 const NavBar = () => (
-  <Nav>
-    <h1>Samuel Gichohi</h1>
-    <div>
-      <Link to="/">Home</Link>
-      <Link to="/about">About</Link>
-      <Link to="/projects">Projects</Link>
-      <Link to="/services">Services</Link>
-      <Link to="/hire-me">Hire Me</Link>
-      <Link to="/contact">Contact</Link>
-    </div>
-  </Nav>
+  <nav className="navbar">
+    <Link to="/" className="nav-link">
+      <FontAwesomeIcon icon={faHome} className="icon" />
+      Home
+    </Link>
+    <Link to="/about" className="nav-link">
+      <FontAwesomeIcon icon={faInfoCircle} className="icon" />
+      About
+    </Link>
+    <Link to="/projects" className="nav-link">
+      <FontAwesomeIcon icon={faProjectDiagram} className="icon" />
+      Projects
+    </Link>
+    <Link to="/services" className="nav-link">
+      <FontAwesomeIcon icon={faConciergeBell} className="icon" />
+      Services
+    </Link>
+    <Link to="/hire-me" className="nav-link">
+      <FontAwesomeIcon icon={faHandHoldingUsd} className="icon" />
+      Hire Me
+    </Link>
+    <Link to="/contact" className="nav-link">
+      <FontAwesomeIcon icon={faEnvelope} className="icon" />
+      Contact
+    </Link>
+  </nav>
 );
 
 export default NavBar;
+
 
 
