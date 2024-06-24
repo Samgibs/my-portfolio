@@ -51,7 +51,7 @@ const ContactPage = () => {
       const emailData = {
         from_name: formData.name,
         message: formData.message,
-        to_name: 'Samuel Gichohi', // Replace with actual recipient's name
+        to_name: 'Samuel Gichohi', 
         reply_to: formData.email,
       };
 

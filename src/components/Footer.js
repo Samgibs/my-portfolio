@@ -12,9 +12,9 @@ const Footer = () => (
   <FooterContainer>
     <p>&copy; 2024 Samuel Gichohi. All rights reserved.</p>
     <p>
-      <a href="https://linkedin.com/in/samuel-gichohi">LinkedIn</a> | 
-      <a href="https://github.com/samuel-gichohi">GitHub</a> | 
-      <a href="https://twitter.com/samuel_gichohi">Twitter</a>
+      <a href="https://www.linkedin.com/in/samuel-gichohi-2a44822b3/">LinkedIn</a> | 
+      <a href="https://github.com/Samgibs">GitHub</a> | 
+      <a href="https://x.com/samuelgibson722">Twitter</a>
     </p>
   </FooterContainer>
 );
