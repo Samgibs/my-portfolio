@@ -48,11 +48,10 @@ const ContactPage = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      // Append your email to the form data
       const emailData = {
-        ...formData,
-        to_email: 'mukabi339@gmail.com', 
-        contact_number: '0719271828', 
+        from_name: formData.name,
+        from_email: formData.email,
+        message: formData.message,
       };
 
       await emailjs.send('service_lc2qmma', 'template_dcbao86', emailData, 'eL5aJfCyVQi7AAz6H');
@@ -95,5 +94,6 @@ const ContactPage = () => {
 };
 
 export default ContactPage;
+
 
 
