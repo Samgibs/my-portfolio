@@ -48,16 +48,14 @@ const ContactPage = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      // Append your email to the form data
       const emailData = {
-        name: formData.name,
-        email: formData.email,
+        from_name: formData.name,
         message: formData.message,
-        to_email: 'mukabi339@gmail.com',
-        reply_to: formData.email, // Setting reply_to to sender's email
+        to_name: 'Samuel Gichohi', // Replace with actual recipient's name
+        reply_to: formData.email,
       };
 
-      await emailjs.send('service_lc2qmma', 'template_dcbao86', emailData, 'eL5aJfCyVQi7AAz6H');
+      await emailjs.send('service_lc2qmma', 'template_jcbp96v', emailData, 'eL5aJfCyVQi7AAz6H');
       alert('Message sent successfully!');
       setFormData({ name: '', email: '', message: '' });
     } catch (error) {
@@ -97,6 +95,7 @@ const ContactPage = () => {
 };
 
 export default ContactPage;
+
 
 
 
