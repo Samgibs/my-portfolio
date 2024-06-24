@@ -51,13 +51,13 @@ const ContactPage = () => {
       // Append your email to the form data
       const emailData = {
         ...formData,
-        to_email: 'mukabi339@gmail.com', // Your default email
-        contact_number: '0719271828', // Default contact number
+        to_email: 'mukabi339@gmail.com', 
+        contact_number: '0719271828', 
       };
 
-      await emailjs.send('service_lc2qmma', 'template_jcbp96v', emailData, 'AASb29MAuGA44PkOo');
+      await emailjs.send('service_lc2qmma', 'template_y9kz6fn', emailData, 'AASb29MAuGA44PkOo');
       alert('Message sent successfully!');
-      setFormData({ name: '', email: '', message: '' }); // Clear form after submission
+      setFormData({ name: '', email: '', message: '' });
     } catch (error) {
       console.error('Error sending email:', error);
       alert('Error sending message!');
