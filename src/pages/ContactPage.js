@@ -55,7 +55,7 @@ const ContactPage = () => {
         contact_number: '0719271828', 
       };
 
-      await emailjs.send('service_lc2qmma', 'template_dcbao86', emailData, 'AASb29MAuGA44PkOo');
+      await emailjs.send('service_lc2qmma', 'template_dcbao86', emailData, 'eL5aJfCyVQi7AAz6H');
       alert('Message sent successfully!');
       setFormData({ name: '', email: '', message: '' });
     } catch (error) {
