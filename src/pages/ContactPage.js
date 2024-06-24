@@ -48,10 +48,13 @@ const ContactPage = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
+      // Append your email to the form data
       const emailData = {
-        from_name: formData.name,
-        from_email: formData.email,
+        name: formData.name,
+        email: formData.email,
         message: formData.message,
+        to_email: 'mukabi339@gmail.com',
+        reply_to: formData.email, // Setting reply_to to sender's email
       };
 
       await emailjs.send('service_lc2qmma', 'template_dcbao86', emailData, 'eL5aJfCyVQi7AAz6H');
