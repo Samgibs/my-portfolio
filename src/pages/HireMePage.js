@@ -137,7 +137,7 @@ const HomePage = () => {
       <h1>Welcome to My Portfolio</h1>
       <Title>Samuel Gichohi, Software Engineer</Title>
       <Description>
-        I am Samuel Gichohi, a seasoned software engineer with over 10 years of experience in building scalable and efficient software solutions. I specialize in full-stack development and have a strong passion for creating impactful digital experiences.
+        I am Samuel Gichohi, a seasoned software engineer with over 3 years of experience in building scalable and efficient software solutions. I specialize in full-stack development and have a strong passion for creating impactful digital experiences.
       </Description>
       <Button
         whileHover={{ scale: 1.05 }}

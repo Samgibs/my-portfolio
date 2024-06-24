@@ -55,7 +55,7 @@ const ContactPage = () => {
         contact_number: '0719271828', // Default contact number
       };
 
-      await emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', emailData, 'YOUR_USER_ID');
+      await emailjs.send('service_lc2qmma', 'template_jcbp96v', emailData, 'AASb29MAuGA44PkOo');
       alert('Message sent successfully!');
       setFormData({ name: '', email: '', message: '' }); // Clear form after submission
     } catch (error) {
