@@ -171,7 +171,7 @@ const SectionTitle = styled(motion.h2)`
   font-weight: 700;
   text-align: center;
   margin-bottom: 60px;
-  background: linear-gradient(45deg, #fff, #f0f8ff);
+  background: linear-gradient(45deg, #fff, #e0e0e0);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -189,7 +189,7 @@ const Timeline = styled.div`
     top: 0;
     bottom: 0;
     width: 2px;
-    background: linear-gradient(to bottom, #ff6b6b, #ee5a52);
+    background: linear-gradient(to bottom, #4a9eff, #0066cc);
     transform: translateX(-50%);
     
     @media (max-width: 768px) {
@@ -229,7 +229,7 @@ const TimelineItem = styled(motion.div)`
     width: 20px;
     height: 20px;
     border-radius: 50%;
-    background: linear-gradient(45deg, #ff6b6b, #ee5a52);
+    background: linear-gradient(45deg, #4a9eff, #0066cc);
     border: 4px solid rgba(255, 255, 255, 0.3);
     
     @media (min-width: 769px) {
@@ -244,11 +244,11 @@ const TimelineItem = styled(motion.div)`
 `;
 
 const TimelineCard = styled.div`
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(0, 0, 0, 0.3);
   backdrop-filter: blur(10px);
   border-radius: 15px;
   padding: 30px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(74, 158, 255, 0.2);
 `;
 
 const TimelineDate = styled.div`
@@ -385,7 +385,7 @@ const AboutPage = () => {
   ];
 
   return (
-    <Container>
+  <Container>
       <HeroSection>
         <ProfileImageWrapper
           initial={{ opacity: 0, scale: 0.8 }}
@@ -580,8 +580,8 @@ const AboutPage = () => {
           ))}
         </StatsGrid>
       </StatsSection>
-    </Container>
-  );
+  </Container>
+);
 };
 
 export default AboutPage;

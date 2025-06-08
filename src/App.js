@@ -9,7 +9,7 @@ import ProjectsPage from './pages/ProjectsPage';
 import ServicesPage from './pages/ServicesPage';
 import HireMePage from './pages/HireMePage';
 import ContactPage from './pages/ContactPage';
-import TestimonialsPage from './components/TestimonialsPage';
+import TestimonialsPage from './pages/TestimonialsPage';
 import './App.css';
 
 const AppContainer = styled.div`

@@ -446,7 +446,7 @@ const HomePage = () => {
   };
 
   return (
-    <Container>
+  <Container>
       <HeroSection>
         <HeroContent>
           <TextContent>
@@ -494,18 +494,18 @@ const HomePage = () => {
               Passionate full-stack mobile developer with expertise in Kotlin, Java, Spring Boot, 
               PHP Laravel, and Python. I create scalable, user-centric applications that bridge 
               the gap between innovative design and robust functionality.
-            </Description>
-            
+        </Description>
+      
             <ButtonGroup>
-              <Link to="/contact">
+        <Link to="/contact">
                 <PrimaryButton
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                >
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
                   <FontAwesomeIcon icon={faUsers} />
                   Let's Connect
                 </PrimaryButton>
-              </Link>
+        </Link>
               
               <SecondaryButton
                 whileHover={{ scale: 1.05 }}
@@ -554,7 +554,7 @@ const HomePage = () => {
         </HeroContent>
         
         <ScrollIndicator
-          whileHover={{ scale: 1.1 }}
+        whileHover={{ scale: 1.1 }}
           onClick={() => document.getElementById('stats').scrollIntoView({ behavior: 'smooth' })}
         >
           <ScrollText>Scroll Down</ScrollText>
@@ -645,9 +645,9 @@ const HomePage = () => {
             ))}
           </SkillsGrid>
         </motion.div>
-      </SkillsSection>
-    </Container>
-  );
+    </SkillsSection>
+  </Container>
+);
 };
 
 export default HomePage;

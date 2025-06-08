@@ -192,7 +192,7 @@ const FooterBottom = styled.div`
   
   @media (max-width: 768px) {
     flex-direction: column;
-    text-align: center;
+  text-align: center;
   }
 `;
 
@@ -247,7 +247,7 @@ const Footer = () => {
   ];
 
   return (
-    <FooterContainer>
+  <FooterContainer>
       <FooterContent>
         <FooterTop>
           <FooterSection
@@ -355,8 +355,8 @@ const Footer = () => {
           </BackToTop>
         </FooterBottom>
       </FooterContent>
-    </FooterContainer>
-  );
+  </FooterContainer>
+);
 };
 
 export default Footer;
