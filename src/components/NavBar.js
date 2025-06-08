@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { 
@@ -15,6 +15,12 @@ import {
   faQuoteLeft
 } from '@fortawesome/free-solid-svg-icons';
 
+const gradientAnimation = keyframes`
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+`;
+
 const Nav = styled(motion.nav)`
   position: fixed;
   top: 0;
@@ -23,12 +29,16 @@ const Nav = styled(motion.nav)`
   z-index: 1000;
   padding: 1rem 2rem;
   background: ${props => props.scrolled ? 
-    'rgba(26, 26, 46, 0.95)' : 
-    'rgba(26, 26, 46, 0.8)'
+    'rgba(0, 0, 0, 0.4)' : 
+    'rgba(0, 0, 0, 0.3)'
   };
   backdrop-filter: blur(20px);
   border-bottom: 1px solid rgba(74, 158, 255, 0.2);
   transition: all 0.3s ease;
+  box-shadow: ${props => props.scrolled ? 
+    '0 8px 32px rgba(0, 0, 0, 0.3)' : 
+    '0 4px 20px rgba(0, 0, 0, 0.1)'
+  };
   
   @media (max-width: 768px) {
     padding: 1rem;
@@ -46,11 +56,19 @@ const NavContainer = styled.div`
 const Logo = styled(motion.div)`
   font-size: 1.5rem;
   font-weight: 700;
-  background: linear-gradient(45deg, #4a9eff, #0066cc);
+  background: linear-gradient(45deg, #fff, #e0e0e0);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
   cursor: pointer;
+  text-shadow: 0 0 20px rgba(74, 158, 255, 0.3);
+  
+  &:hover {
+    background: linear-gradient(45deg, #4a9eff, #0066cc);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
 `;
 
 const NavLinks = styled.div`
@@ -72,32 +90,31 @@ const NavLink = styled(Link)`
   align-items: center;
   gap: 0.5rem;
   padding: 0.5rem 1rem;
-  border-radius: 25px;
+  border-radius: 12px;
   transition: all 0.3s ease;
   position: relative;
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(74, 158, 255, 0.1);
+  backdrop-filter: blur(10px);
   
   &:hover, &.active {
     color: #fff;
     background: rgba(74, 158, 255, 0.2);
+    border-color: rgba(74, 158, 255, 0.3);
     transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(74, 158, 255, 0.2);
   }
   
-  &.active::after {
-    content: '';
-    position: absolute;
-    bottom: -2px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 30px;
-    height: 2px;
-    background: linear-gradient(45deg, #4a9eff, #0066cc);
-    border-radius: 1px;
+  &.active {
+    background: rgba(74, 158, 255, 0.15);
+    border-color: rgba(74, 158, 255, 0.4);
+    color: #4a9eff;
   }
 `;
 
 const MobileMenuButton = styled(motion.button)`
   display: none;
-  background: rgba(74, 158, 255, 0.2);
+  background: rgba(0, 0, 0, 0.3);
   border: 1px solid rgba(74, 158, 255, 0.3);
   color: white;
   width: 45px;
@@ -111,8 +128,9 @@ const MobileMenuButton = styled(motion.button)`
   transition: all 0.3s ease;
   
   &:hover {
-    background: rgba(74, 158, 255, 0.3);
+    background: rgba(74, 158, 255, 0.2);
     transform: scale(1.05);
+    box-shadow: 0 4px 15px rgba(74, 158, 255, 0.3);
   }
   
   @media (max-width: 768px) {
@@ -126,7 +144,9 @@ const MobileMenu = styled(motion.div)`
   left: 0;
   width: 100%;
   height: 100vh;
-  background: rgba(26, 26, 46, 0.95);
+  background: linear-gradient(-45deg, #1a1a2e, #16213e, #0f3460, #1a1a2e);
+  background-size: 400% 400%;
+  animation: ${gradientAnimation} 15s ease infinite;
   backdrop-filter: blur(20px);
   display: flex;
   flex-direction: column;
@@ -164,22 +184,24 @@ const CloseButton = styled(motion.button)`
   position: absolute;
   top: 2rem;
   right: 2rem;
-  background: rgba(74, 158, 255, 0.2);
+  background: rgba(0, 0, 0, 0.3);
   border: 1px solid rgba(74, 158, 255, 0.3);
   color: white;
   width: 50px;
   height: 50px;
-  border-radius: 50%;
+  border-radius: 12px;
   cursor: pointer;
   backdrop-filter: blur(10px);
   font-size: 1.2rem;
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: all 0.3s ease;
   
   &:hover {
-    background: rgba(74, 158, 255, 0.3);
+    background: rgba(74, 158, 255, 0.2);
     transform: rotate(90deg);
+    box-shadow: 0 4px 15px rgba(74, 158, 255, 0.3);
   }
 `;
 
