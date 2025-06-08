@@ -1,155 +1,585 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import { motion } from 'framer-motion';
-import profileImage from '../assets/profile-image.jpg';
-import pythonIcon from '../assets/python-icon.png';
-import djangoIcon from '../assets/django-icon.png';
-import mernIcon from '../assets/mern-icon.png';
-import gitIcon from '../assets/git-icon.png';
-import githubIcon from '../assets/github-icon.png';
-import htmlIcon from '../assets/html_and_css-icon.jpeg';
-import cssIcon from '../assets/html_and_css-icon.jpeg';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { 
+  faGraduationCap, 
+  faBriefcase, 
+  faCode, 
+  faLightbulb,
+  faAward,
+  faCalendarAlt,
+  faMapMarkerAlt,
+  faRocket,
+  faMobile,
+  faServer,
+  faDatabase
+} from '@fortawesome/free-solid-svg-icons';
+import { 
+  faJava, 
+  faPython, 
+  faPhp, 
+  faReact, 
+  faAndroid,
+  faGithub,
+  faLinkedin,
+  faGitAlt
+} from '@fortawesome/free-brands-svg-icons';
+import profileImage from '../assets/profile-image-new.jpg';
 
+// Animations
+const float = keyframes`
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+`;
+
+const pulse = keyframes`
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+`;
+
+const gradient = keyframes`
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+`;
+
+// Styled Components
 const Container = styled.div`
-  background: #858585;
-  color: #EEF2F0;
-  padding: 50px 20px;
+  background: linear-gradient(-45deg, #1a1a2e, #16213e, #0f3460, #1a1a2e);
+  background-size: 400% 400%;
+  animation: ${gradient} 15s ease infinite;
+  color: #ffffff;
+  min-height: 100vh;
+  overflow-x: hidden;
+`;
+
+const Section = styled.section`
+  padding: 80px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+`;
+
+const HeroSection = styled(Section)`
   text-align: center;
-  @media (max-width: 768px) {
-    padding: 30px 10px;
-  }
+  padding-bottom: 40px;
 `;
 
-const ProfileImage = styled(motion.img)`
+const ProfileImageWrapper = styled(motion.div)`
+  position: relative;
+  display: inline-block;
+  margin-bottom: 40px;
+`;
+
+const ProfileImage = styled.img`
+  width: 250px;
+  height: 250px;
   border-radius: 50%;
-  width: 200px;
-  height: 200px;
+  object-fit: cover;
+  border: 5px solid rgba(255, 255, 255, 0.3);
+  background: linear-gradient(45deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1));
+  backdrop-filter: blur(10px);
+  animation: ${float} 6s ease-in-out infinite;
+  
+  @media (max-width: 768px) {
+    width: 200px;
+    height: 200px;
+  }
+`;
+
+const Title = styled(motion.h1)`
+  font-size: 3rem;
+  font-weight: 700;
   margin-bottom: 20px;
-  border: 5px solid #EEF2F0;
+  background: linear-gradient(45deg, #fff, #f0f8ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  
   @media (max-width: 768px) {
-    width: 150px;
-    height: 150px;
+    font-size: 2.5rem;
   }
 `;
 
-const Title = styled.h2`
-  margin: 10px 0;
-`;
-
-const Description = styled.p`
+const Subtitle = styled(motion.p)`
+  font-size: 1.3rem;
+  margin-bottom: 40px;
+  color: rgba(255, 255, 255, 0.9);
   max-width: 600px;
-  margin: 0 auto 20px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
 `;
 
-const Education = styled.div`
-  margin: 20px 0;
+const ContentGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 40px;
+  margin-top: 60px;
 `;
 
-const Skills = styled.div`
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 20px;
-  margin: 20px 0;
-`;
-
-const Skill = styled(motion.div)`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background: #282828;
-  border-radius: 10px;
-  padding: 10px;
-  width: 100px;
-  height: 100px;
-  @media (max-width: 768px) {
-    width: 80px;
-    height: 80px;
+const Card = styled(motion.div)`
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 40px 30px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+  
+  &:hover {
+    transform: translateY(-10px);
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
   }
 `;
 
-const SkillIcon = styled.img`
+const CardIcon = styled.div`
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: linear-gradient(45deg, #ff6b6b, #ee5a52);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+  color: white;
+  animation: ${pulse} 2s ease-in-out infinite;
+`;
+
+const CardTitle = styled.h3`
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 15px;
+  color: #fff;
+`;
+
+const CardContent = styled.div`
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.6;
+`;
+
+const TimelineSection = styled(Section)`
+  position: relative;
+`;
+
+const SectionTitle = styled(motion.h2)`
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 60px;
+  background: linear-gradient(45deg, #fff, #f0f8ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+`;
+
+const Timeline = styled.div`
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(to bottom, #ff6b6b, #ee5a52);
+    transform: translateX(-50%);
+    
+    @media (max-width: 768px) {
+      left: 20px;
+    }
+  }
+`;
+
+const TimelineItem = styled(motion.div)`
+  position: relative;
+  margin-bottom: 60px;
+  
+  &:nth-child(odd) {
+    padding-left: 60%;
+    
+    @media (max-width: 768px) {
+      padding-left: 60px;
+      padding-right: 0;
+    }
+  }
+  
+  &:nth-child(even) {
+    padding-right: 60%;
+    text-align: right;
+    
+    @media (max-width: 768px) {
+      padding-left: 60px;
+      padding-right: 0;
+      text-align: left;
+    }
+  }
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: linear-gradient(45deg, #ff6b6b, #ee5a52);
+    border: 4px solid rgba(255, 255, 255, 0.3);
+    
+    @media (min-width: 769px) {
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    
+    @media (max-width: 768px) {
+      left: 12px;
+    }
+  }
+`;
+
+const TimelineCard = styled.div`
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  padding: 30px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+`;
+
+const TimelineDate = styled.div`
+  color: #4a9eff;
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+`;
+
+const TimelineTitle = styled.h4`
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: #fff;
+`;
+
+const TimelineSubtitle = styled.p`
+  color: #4a9eff;
+  font-weight: 500;
+  margin-bottom: 15px;
+`;
+
+const TimelineDescription = styled.p`
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.6;
+`;
+
+const SkillsSection = styled(Section)``;
+
+const SkillsGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
+`;
+
+const SkillCategory = styled(motion.div)`
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  padding: 30px 20px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  text-align: center;
+  
+  &:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.15);
+  }
+`;
+
+const SkillIcon = styled.div`
   width: 50px;
   height: 50px;
+  border-radius: 50%;
+  background: linear-gradient(45deg, #ff6b6b, #ee5a52);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 15px;
+  font-size: 1.2rem;
+  color: white;
+`;
+
+const SkillName = styled.h4`
+  font-size: 1.1rem;
+  font-weight: 600;
   margin-bottom: 10px;
-  @media (max-width: 768px) {
-    width: 40px;
-    height: 40px;
+  color: #fff;
+`;
+
+const SkillLevel = styled.div`
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.9rem;
+`;
+
+const StatsSection = styled(Section)`
+  text-align: center;
+`;
+
+const StatsGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 40px;
+  margin-top: 40px;
+`;
+
+const StatCard = styled(motion.div)`
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  padding: 30px 20px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  
+  &:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.15);
   }
 `;
 
-const AboutPage = () => (
-  <Container>
-    <ProfileImage
-      src={profileImage}
-      alt="Samuel Gichohi"
-      whileHover={{ boxShadow: '0px 0px 20px 5px rgba(238, 242, 240, 0.9)' }}
-      transition={{ duration: 0.5 }}
-    />
-    <h1>About Me</h1>
-    <Description>
-      As a seasoned software engineer, my journey in the tech world began with a strong foundation in information science and a passion for creating impactful software solutions.
-    </Description>
-    <Education>
-      <Title>Education</Title>
-      <p>Jomo Kenyatta University of Agriculture and Technology</p>
-      <p>Bachelor of Science in Information Science</p>
-      <p>Africa Leadership Program</p>
-      <p>Full Stack Software Engineering</p>
-    </Education>
-    <Skills>
-      <Skill
-        whileHover={{ scale: 1.1 }}
-        transition={{ type: 'spring', stiffness: 300 }}
-      >
-        <SkillIcon src={pythonIcon} alt="Python" />
-        <p>Python</p>
-      </Skill>
-      <Skill
-        whileHover={{ scale: 1.1 }}
-        transition={{ type: 'spring', stiffness: 300 }}
-      >
-        <SkillIcon src={djangoIcon} alt="Django" />
-        <p>Django</p>
-      </Skill>
-      <Skill
-        whileHover={{ scale: 1.1 }}
-        transition={{ type: 'spring', stiffness: 300 }}
-      >
-        <SkillIcon src={mernIcon} alt="MERN Stack" />
-        <p>MERN Stack</p>
-      </Skill>
-      <Skill
-        whileHover={{ scale: 1.1 }}
-        transition={{ type: 'spring', stiffness: 300 }}
-      >
-        <SkillIcon src={gitIcon} alt="Git" />
-        <p>Git</p>
-      </Skill>
-      <Skill
-        whileHover={{ scale: 1.1 }}
-        transition={{ type: 'spring', stiffness: 300 }}
-      >
-        <SkillIcon src={githubIcon} alt="GitHub" />
-        <p>GitHub</p>
-      </Skill>
-      <Skill
-        whileHover={{ scale: 1.1 }}
-        transition={{ type: 'spring', stiffness: 300 }}
-      >
-        <SkillIcon src={htmlIcon} alt="HTML" />
-        <p>HTML</p>
-      </Skill>
-      <Skill
-        whileHover={{ scale: 1.1 }}
-        transition={{ type: 'spring', stiffness: 300 }}
-      >
-        <SkillIcon src={cssIcon} alt="CSS" />
-        <p>CSS</p>
-      </Skill>
-    </Skills>
-  </Container>
-);
+const StatNumber = styled.div`
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #ff6b6b;
+  margin-bottom: 10px;
+`;
+
+const StatLabel = styled.div`
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 500;
+`;
+
+const AboutPage = () => {
+  const skills = [
+    { name: 'Kotlin', icon: faAndroid, level: 'Advanced' },
+    { name: 'Java', icon: faJava, level: 'Advanced' },
+    { name: 'Spring Boot', icon: faServer, level: 'Advanced' },
+    { name: 'PHP Laravel', icon: faPhp, level: 'Advanced' },
+    { name: 'Python', icon: faPython, level: 'Expert' },
+    { name: 'React', icon: faReact, level: 'Advanced' },
+    { name: 'Mobile Dev', icon: faMobile, level: 'Advanced' },
+    { name: 'Version Control', icon: faGitAlt, level: 'Expert' }
+  ];
+
+  const stats = [
+    { number: '3+', label: 'Years Experience' },
+    { number: '50+', label: 'Projects Completed' },
+    { number: '8+', label: 'Technologies' },
+    { number: '30+', label: 'Happy Clients' }
+  ];
+
+  return (
+    <Container>
+      <HeroSection>
+        <ProfileImageWrapper
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8 }}
+        >
+          <ProfileImage src={profileImage} alt="Samuel Gichohi" />
+        </ProfileImageWrapper>
+        
+        <Title
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+        >
+          About Samuel Gichohi
+        </Title>
+        
+        <Subtitle
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+        >
+          A passionate full-stack mobile developer with expertise in modern technologies, 
+          dedicated to creating innovative digital solutions that make a real impact.
+        </Subtitle>
+
+        <ContentGrid>
+          <Card
+            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, y: 50 }}
+            transition={{ duration: 0.6 }}
+          >
+            <CardIcon>
+              <FontAwesomeIcon icon={faLightbulb} />
+            </CardIcon>
+            <CardTitle>Innovation</CardTitle>
+            <CardContent>
+              I thrive on solving complex problems with creative solutions, 
+              always staying ahead of technology trends and best practices.
+            </CardContent>
+          </Card>
+
+          <Card
+            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, y: 50 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
+            <CardIcon>
+              <FontAwesomeIcon icon={faRocket} />
+            </CardIcon>
+            <CardTitle>Performance</CardTitle>
+            <CardContent>
+              Building scalable, high-performance applications that deliver 
+              exceptional user experiences across all platforms.
+            </CardContent>
+          </Card>
+
+          <Card
+            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, y: 50 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+          >
+            <CardIcon>
+              <FontAwesomeIcon icon={faCode} />
+            </CardIcon>
+            <CardTitle>Clean Code</CardTitle>
+            <CardContent>
+              Writing maintainable, well-documented code following industry 
+              standards and best practices for long-term project success.
+            </CardContent>
+          </Card>
+        </ContentGrid>
+      </HeroSection>
+
+      <TimelineSection>
+        <SectionTitle
+          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, y: 30 }}
+          transition={{ duration: 0.6 }}
+        >
+          My Journey
+        </SectionTitle>
+        
+        <Timeline>
+          <TimelineItem
+            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, x: -50 }}
+            transition={{ duration: 0.6 }}
+          >
+            <TimelineCard>
+              <TimelineDate>
+                <FontAwesomeIcon icon={faCalendarAlt} />
+                2021 - 2024
+              </TimelineDate>
+              <TimelineTitle>Bachelor of Science in Information Science</TimelineTitle>
+              <TimelineSubtitle>Jomo Kenyatta University of Agriculture and Technology</TimelineSubtitle>
+              <TimelineDescription>
+                Graduated with comprehensive knowledge in information systems, 
+                software development, and data management. Specialized in modern 
+                programming paradigms and software engineering principles.
+              </TimelineDescription>
+            </TimelineCard>
+          </TimelineItem>
+
+          <TimelineItem
+            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, x: 50 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
+            <TimelineCard>
+              <TimelineDate>
+                <FontAwesomeIcon icon={faCalendarAlt} />
+                2022 - 2023
+              </TimelineDate>
+              <TimelineTitle>Full Stack Software Engineering</TimelineTitle>
+              <TimelineSubtitle>Africa Leadership Program</TimelineSubtitle>
+              <TimelineDescription>
+                Intensive program focusing on modern web technologies, mobile development, 
+                and industry best practices. Gained hands-on experience with real-world projects.
+              </TimelineDescription>
+            </TimelineCard>
+          </TimelineItem>
+
+          <TimelineItem
+            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, x: -50 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+          >
+            <TimelineCard>
+              <TimelineDate>
+                <FontAwesomeIcon icon={faCalendarAlt} />
+                2023 - Present
+              </TimelineDate>
+              <TimelineTitle>Full-Stack Mobile Developer</TimelineTitle>
+              <TimelineSubtitle>Freelance & Contract Work</TimelineSubtitle>
+              <TimelineDescription>
+                Specialized in Kotlin, Java, Spring Boot, PHP Laravel, and Python development. 
+                Successfully delivered 50+ projects for various clients across different industries.
+              </TimelineDescription>
+            </TimelineCard>
+          </TimelineItem>
+        </Timeline>
+      </TimelineSection>
+
+      <SkillsSection>
+        <SectionTitle
+          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, y: 30 }}
+          transition={{ duration: 0.6 }}
+        >
+          Technical Expertise
+        </SectionTitle>
+        
+        <SkillsGrid>
+          {skills.map((skill, index) => (
+            <SkillCategory
+              key={skill.name}
+              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, y: 30 }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+            >
+              <SkillIcon>
+                <FontAwesomeIcon icon={skill.icon} />
+              </SkillIcon>
+              <SkillName>{skill.name}</SkillName>
+              <SkillLevel>{skill.level}</SkillLevel>
+            </SkillCategory>
+          ))}
+        </SkillsGrid>
+      </SkillsSection>
+
+      <StatsSection>
+        <SectionTitle
+          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, y: 30 }}
+          transition={{ duration: 0.6 }}
+        >
+          By the Numbers
+        </SectionTitle>
+        
+        <StatsGrid>
+          {stats.map((stat, index) => (
+            <StatCard
+              key={stat.label}
+              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, y: 30 }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+            >
+              <StatNumber>{stat.number}</StatNumber>
+              <StatLabel>{stat.label}</StatLabel>
+            </StatCard>
+          ))}
+        </StatsGrid>
+      </StatsSection>
+    </Container>
+  );
+};
 
 export default AboutPage;
 
