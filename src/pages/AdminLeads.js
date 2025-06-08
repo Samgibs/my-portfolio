@@ -673,13 +673,7 @@ const AdminLeads = () => {
                         >
                           <FontAwesomeIcon icon={faEye} />
                         </ActionIconButton>
-                        <ActionIconButton
-                          onClick={() => navigate(`/admin/leads/${lead.id}/edit`)}
-                          whileHover={{ scale: 1.1 }}
-                          title="Edit Lead"
-                        >
-                          <FontAwesomeIcon icon={faEdit} />
-                        </ActionIconButton>
+
                         <ActionIconButton
                           className="delete"
                           onClick={() => handleDelete(lead.id)}

@@ -13,6 +13,7 @@ import TestimonialsPage from './pages/TestimonialsPage';
 import AdminLogin from './pages/AdminLogin';
 import AdminDashboard from './pages/AdminDashboard';
 import AdminLeads from './pages/AdminLeads';
+import LeadDetails from './pages/LeadDetails';
 import './App.css';
 
 const AppContainer = styled.div`
@@ -38,6 +39,7 @@ const App = () => (
         <Route path="/admin" element={<AdminLogin />} />
         <Route path="/admin/dashboard" element={<AdminDashboard />} />
         <Route path="/admin/leads" element={<AdminLeads />} />
+        <Route path="/admin/leads/:id" element={<LeadDetails />} />
         
         {/* Public Routes */}
         <Route path="/*" element={
