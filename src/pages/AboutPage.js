@@ -121,17 +121,18 @@ const ContentGrid = styled.div`
 `;
 
 const Card = styled(motion.div)`
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(0, 0, 0, 0.3);
   backdrop-filter: blur(10px);
   border-radius: 20px;
   padding: 40px 30px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(74, 158, 255, 0.2);
   transition: all 0.3s ease;
   
   &:hover {
     transform: translateY(-10px);
-    background: rgba(255, 255, 255, 0.15);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    background: rgba(74, 158, 255, 0.1);
+    border-color: #4a9eff;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
   }
 `;
 
@@ -139,7 +140,7 @@ const CardIcon = styled.div`
   width: 60px;
   height: 60px;
   border-radius: 50%;
-  background: linear-gradient(45deg, #ff6b6b, #ee5a52);
+  background: linear-gradient(45deg, #4a9eff, #0066cc);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -288,16 +289,17 @@ const SkillsGrid = styled.div`
 `;
 
 const SkillCategory = styled(motion.div)`
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(0, 0, 0, 0.3);
   backdrop-filter: blur(10px);
   border-radius: 15px;
   padding: 30px 20px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(74, 158, 255, 0.2);
   text-align: center;
   
   &:hover {
     transform: translateY(-5px);
-    background: rgba(255, 255, 255, 0.15);
+    background: rgba(74, 158, 255, 0.1);
+    border-color: #4a9eff;
   }
 `;
 
@@ -305,7 +307,7 @@ const SkillIcon = styled.div`
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  background: linear-gradient(45deg, #ff6b6b, #ee5a52);
+  background: linear-gradient(45deg, #4a9eff, #0066cc);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -338,22 +340,23 @@ const StatsGrid = styled.div`
 `;
 
 const StatCard = styled(motion.div)`
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(0, 0, 0, 0.3);
   backdrop-filter: blur(10px);
   border-radius: 15px;
   padding: 30px 20px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(74, 158, 255, 0.2);
   
   &:hover {
     transform: translateY(-5px);
-    background: rgba(255, 255, 255, 0.15);
+    background: rgba(74, 158, 255, 0.1);
+    border-color: #4a9eff;
   }
 `;
 
 const StatNumber = styled.div`
   font-size: 2.5rem;
   font-weight: 700;
-  color: #ff6b6b;
+  color: #4a9eff;
   margin-bottom: 10px;
 `;
 
