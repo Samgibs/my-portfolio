@@ -10,6 +10,9 @@ import ServicesPage from './pages/ServicesPage';
 import HireMePage from './pages/HireMePage';
 import ContactPage from './pages/ContactPage';
 import TestimonialsPage from './pages/TestimonialsPage';
+import AdminLogin from './pages/AdminLogin';
+import AdminDashboard from './pages/AdminDashboard';
+import AdminLeads from './pages/AdminLeads';
 import './App.css';
 
 const AppContainer = styled.div`
@@ -30,19 +33,31 @@ const MainContent = styled.main`
 const App = () => (
   <Router>
     <AppContainer>
-      <NavBar />
-      <MainContent>
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/about" element={<AboutPage />} />
-          <Route path="/projects" element={<ProjectsPage />} />
-          <Route path="/services" element={<ServicesPage />} />
-          <Route path="/hire-me" element={<HireMePage />} />
-          <Route path="/testimonials" element={<TestimonialsPage />} />
-          <Route path="/contact" element={<ContactPage />} />
-        </Routes>
-      </MainContent>
-      <Footer />
+      <Routes>
+        {/* Admin Routes */}
+        <Route path="/admin" element={<AdminLogin />} />
+        <Route path="/admin/dashboard" element={<AdminDashboard />} />
+        <Route path="/admin/leads" element={<AdminLeads />} />
+        
+        {/* Public Routes */}
+        <Route path="/*" element={
+          <>
+            <NavBar />
+            <MainContent>
+              <Routes>
+                <Route path="/" element={<HomePage />} />
+                <Route path="/about" element={<AboutPage />} />
+                <Route path="/projects" element={<ProjectsPage />} />
+                <Route path="/services" element={<ServicesPage />} />
+                <Route path="/hire-me" element={<HireMePage />} />
+                <Route path="/testimonials" element={<TestimonialsPage />} />
+                <Route path="/contact" element={<ContactPage />} />
+              </Routes>
+            </MainContent>
+            <Footer />
+          </>
+        } />
+      </Routes>
     </AppContainer>
   </Router>
 );
