@@ -51,10 +51,22 @@ const Container = styled.div`
 `;
 
 const Section = styled.section`
-  padding: 80px 20px;
+  padding: 60px 15px;
   max-width: 1400px;
   margin: 0 auto;
   position: relative;
+  
+  @media (min-width: 480px) {
+    padding: 70px 20px;
+  }
+  
+  @media (min-width: 768px) {
+    padding: 80px 30px;
+  }
+  
+  @media (min-width: 1024px) {
+    padding: 80px 20px;
+  }
 `;
 
 const Header = styled.div`
@@ -63,16 +75,26 @@ const Header = styled.div`
 `;
 
 const Title = styled(motion.h1)`
-  font-size: 3rem;
+  font-size: 2rem;
   font-weight: 700;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
   background: linear-gradient(45deg, #fff, #e0e0e0);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  line-height: 1.2;
   
-  @media (max-width: 768px) {
+  @media (min-width: 480px) {
     font-size: 2.5rem;
+    margin-bottom: 20px;
+  }
+  
+  @media (min-width: 768px) {
+    font-size: 2.8rem;
+  }
+  
+  @media (min-width: 1024px) {
+    font-size: 3rem;
   }
 `;
 
@@ -86,13 +108,32 @@ const Subtitle = styled(motion.p)`
 
 const ProjectsGrid = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
-  gap: 35px;
-  margin-top: 60px;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  margin-top: 40px;
+  padding: 0 10px;
   
-  @media (max-width: 768px) {
-    grid-template-columns: 1fr;
+  @media (min-width: 480px) {
     gap: 25px;
+    margin-top: 50px;
+    padding: 0 15px;
+  }
+  
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 60px;
+    padding: 0 20px;
+  }
+  
+  @media (min-width: 1024px) {
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 35px;
+    padding: 0;
+  }
+  
+  @media (min-width: 1200px) {
+    grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
   }
 `;
 

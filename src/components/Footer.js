@@ -38,19 +38,43 @@ const FooterContainer = styled.footer`
 const FooterContent = styled.div`
   max-width: 1200px;
   margin: 0 auto;
-  padding: 60px 20px 20px;
+  padding: 40px 15px 20px;
+  
+  @media (min-width: 480px) {
+    padding: 50px 20px 20px;
+  }
+  
+  @media (min-width: 768px) {
+    padding: 60px 30px 20px;
+  }
+  
+  @media (min-width: 1024px) {
+    padding: 60px 20px 20px;
+  }
 `;
 
 const FooterTop = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 40px;
-  margin-bottom: 40px;
+  grid-template-columns: 1fr;
+  gap: 25px;
+  margin-bottom: 30px;
+  text-align: center;
   
-  @media (max-width: 768px) {
-    grid-template-columns: 1fr;
+  @media (min-width: 480px) {
     gap: 30px;
-    text-align: center;
+    margin-bottom: 35px;
+  }
+  
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 35px;
+    margin-bottom: 40px;
+    text-align: left;
+  }
+  
+  @media (min-width: 1024px) {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
   }
 `;
 
@@ -81,17 +105,28 @@ const ContactInfo = styled.div`
 const ContactItem = styled.div`
   display: flex;
   align-items: center;
-  gap: 12px;
+  justify-content: center;
+  gap: 10px;
   color: rgba(255, 255, 255, 0.8);
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   
   .icon {
-    width: 20px;
+    width: 18px;
     color: #4a9eff;
+    flex-shrink: 0;
   }
   
-  @media (max-width: 768px) {
-    justify-content: center;
+  @media (min-width: 480px) {
+    font-size: 0.9rem;
+    gap: 12px;
+    
+    .icon {
+      width: 20px;
+    }
+  }
+  
+  @media (min-width: 768px) {
+    justify-content: flex-start;
   }
 `;
 
@@ -161,18 +196,31 @@ const QuickLink = styled.a`
 const TechStack = styled.div`
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: 6px;
   margin-top: 15px;
+  justify-content: center;
+  
+  @media (min-width: 768px) {
+    justify-content: flex-start;
+    gap: 8px;
+  }
 `;
 
 const TechTag = styled.span`
   background: rgba(74, 158, 255, 0.2);
   color: rgba(255, 255, 255, 0.8);
-  padding: 4px 12px;
-  border-radius: 15px;
-  font-size: 0.8rem;
+  padding: 6px 10px;
+  border-radius: 12px;
+  font-size: 0.75rem;
   border: 1px solid rgba(74, 158, 255, 0.3);
   transition: all 0.3s ease;
+  white-space: nowrap;
+  
+  @media (min-width: 480px) {
+    padding: 4px 12px;
+    border-radius: 15px;
+    font-size: 0.8rem;
+  }
   
   &:hover {
     background: rgba(74, 158, 255, 0.3);
@@ -183,16 +231,23 @@ const TechTag = styled.span`
 
 const FooterBottom = styled.div`
   border-top: 1px solid rgba(74, 158, 255, 0.2);
-  padding-top: 30px;
+  padding-top: 20px;
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   align-items: center;
-  flex-wrap: wrap;
-  gap: 20px;
-  
-  @media (max-width: 768px) {
-    flex-direction: column;
   text-align: center;
+  gap: 15px;
+  
+  @media (min-width: 480px) {
+    padding-top: 25px;
+    gap: 20px;
+  }
+  
+  @media (min-width: 768px) {
+    padding-top: 30px;
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: left;
   }
 `;
 

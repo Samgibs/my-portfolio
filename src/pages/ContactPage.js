@@ -37,10 +37,22 @@ const Container = styled.div`
 `;
 
 const Section = styled.section`
-  padding: 80px 20px;
+  padding: 60px 15px;
   max-width: 1200px;
   margin: 0 auto;
   position: relative;
+  
+  @media (min-width: 480px) {
+    padding: 70px 20px;
+  }
+  
+  @media (min-width: 768px) {
+    padding: 80px 30px;
+  }
+  
+  @media (min-width: 1024px) {
+    padding: 80px 20px;
+  }
 `;
 
 const Header = styled.div`
@@ -49,16 +61,26 @@ const Header = styled.div`
 `;
 
 const Title = styled(motion.h1)`
-  font-size: 3rem;
+  font-size: 2rem;
   font-weight: 700;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
   background: linear-gradient(45deg, #fff, #e0e0e0);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  line-height: 1.2;
   
-  @media (max-width: 768px) {
+  @media (min-width: 480px) {
     font-size: 2.5rem;
+    margin-bottom: 20px;
+  }
+  
+  @media (min-width: 768px) {
+    font-size: 2.8rem;
+  }
+  
+  @media (min-width: 1024px) {
+    font-size: 3rem;
   }
 `;
 
@@ -72,22 +94,42 @@ const Subtitle = styled(motion.p)`
 
 const ContentGrid = styled.div`
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 60px;
-  margin-top: 60px;
+  grid-template-columns: 1fr;
+  gap: 30px;
+  margin-top: 40px;
   
-  @media (max-width: 768px) {
-    grid-template-columns: 1fr;
+  @media (min-width: 480px) {
     gap: 40px;
+    margin-top: 50px;
+  }
+  
+  @media (min-width: 768px) {
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    margin-top: 60px;
+  }
+  
+  @media (min-width: 1024px) {
+    gap: 60px;
   }
 `;
 
 const ContactInfo = styled(motion.div)`
   background: rgba(0, 0, 0, 0.3);
   backdrop-filter: blur(10px);
-  border-radius: 20px;
-  padding: 40px;
+  border-radius: 15px;
+  padding: 20px;
   border: 1px solid rgba(74, 158, 255, 0.2);
+  
+  @media (min-width: 480px) {
+    padding: 30px;
+    border-radius: 18px;
+  }
+  
+  @media (min-width: 768px) {
+    padding: 40px;
+    border-radius: 20px;
+  }
 `;
 
 const ContactInfoTitle = styled.h3`
@@ -177,9 +219,19 @@ const SocialIcon = styled(motion.a)`
 const ContactForm = styled(motion.form)`
   background: rgba(0, 0, 0, 0.3);
   backdrop-filter: blur(10px);
-  border-radius: 20px;
-  padding: 40px;
+  border-radius: 15px;
+  padding: 20px;
   border: 1px solid rgba(74, 158, 255, 0.2);
+  
+  @media (min-width: 480px) {
+    padding: 30px;
+    border-radius: 18px;
+  }
+  
+  @media (min-width: 768px) {
+    padding: 40px;
+    border-radius: 20px;
+  }
 `;
 
 const FormTitle = styled.h3`

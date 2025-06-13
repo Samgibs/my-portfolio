@@ -72,12 +72,17 @@ const Logo = styled(motion.div)`
 `;
 
 const NavLinks = styled.div`
-  display: flex;
+  display: none;
   align-items: center;
-  gap: 2rem;
+  gap: 1rem;
   
-  @media (max-width: 768px) {
-    display: none;
+  @media (min-width: 480px) {
+    gap: 1.5rem;
+  }
+  
+  @media (min-width: 768px) {
+    display: flex;
+    gap: 2rem;
   }
 `;
 
@@ -113,28 +118,35 @@ const NavLink = styled(Link)`
 `;
 
 const MobileMenuButton = styled(motion.button)`
-  display: none;
+  display: flex;
   background: rgba(0, 0, 0, 0.3);
   border: 1px solid rgba(74, 158, 255, 0.3);
   color: white;
-  width: 45px;
-  height: 45px;
-  border-radius: 12px;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
   cursor: pointer;
   backdrop-filter: blur(10px);
-  font-size: 1.1rem;
+  font-size: 1rem;
   align-items: center;
   justify-content: center;
   transition: all 0.3s ease;
+  
+  @media (min-width: 480px) {
+    width: 45px;
+    height: 45px;
+    border-radius: 12px;
+    font-size: 1.1rem;
+  }
+  
+  @media (min-width: 768px) {
+    display: none;
+  }
   
   &:hover {
     background: rgba(74, 158, 255, 0.2);
     transform: scale(1.05);
     box-shadow: 0 4px 15px rgba(74, 158, 255, 0.3);
-  }
-  
-  @media (max-width: 768px) {
-    display: flex;
   }
 `;
 

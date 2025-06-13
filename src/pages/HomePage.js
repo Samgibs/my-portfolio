@@ -60,10 +60,22 @@ const Container = styled.div`
 `;
 
 const Section = styled.section`
-  padding: 80px 20px;
+  padding: 60px 15px;
   max-width: 1200px;
   margin: 0 auto;
   position: relative;
+  
+  @media (min-width: 480px) {
+    padding: 70px 20px;
+  }
+  
+  @media (min-width: 768px) {
+    padding: 80px 30px;
+  }
+  
+  @media (min-width: 1024px) {
+    padding: 80px 20px;
+  }
 `;
 
 const HeroSection = styled(Section)`
@@ -77,23 +89,30 @@ const HeroSection = styled(Section)`
 
 const HeroContent = styled.div`
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 60px;
+  grid-template-columns: 1fr;
+  gap: 30px;
   align-items: center;
   width: 100%;
   
-  @media (max-width: 768px) {
-    grid-template-columns: 1fr;
+  @media (min-width: 480px) {
     gap: 40px;
-    text-align: center;
+  }
+  
+  @media (min-width: 768px) {
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+  }
+  
+  @media (min-width: 1024px) {
+    gap: 80px;
   }
 `;
 
 const TextContent = styled.div`
-  text-align: left;
+  text-align: center;
   
-  @media (max-width: 768px) {
-    text-align: center;
+  @media (min-width: 768px) {
+    text-align: left;
   }
 `;
 
@@ -105,29 +124,50 @@ const Greeting = styled(motion.h1)`
 `;
 
 const Name = styled(motion.h2)`
-  font-size: 3.5rem;
+  font-size: 2rem;
   font-weight: 700;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
   background: linear-gradient(45deg, #fff, #e0e0e0);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  line-height: 1.2;
   
-  @media (max-width: 768px) {
+  @media (min-width: 480px) {
     font-size: 2.5rem;
+    margin-bottom: 20px;
+  }
+  
+  @media (min-width: 768px) {
+    font-size: 3rem;
+  }
+  
+  @media (min-width: 1024px) {
+    font-size: 3.5rem;
   }
 `;
 
 const TypedText = styled.div`
-  font-size: 1.8rem;
+  font-size: 1.2rem;
   font-weight: 500;
-  margin-bottom: 30px;
-  height: 60px;
+  margin-bottom: 20px;
+  height: 40px;
   color: #4a9eff;
   
-  @media (max-width: 768px) {
+  @media (min-width: 480px) {
     font-size: 1.4rem;
     height: 50px;
+    margin-bottom: 25px;
+  }
+  
+  @media (min-width: 768px) {
+    font-size: 1.6rem;
+    margin-bottom: 30px;
+  }
+  
+  @media (min-width: 1024px) {
+    font-size: 1.8rem;
+    height: 60px;
   }
 `;
 
@@ -141,12 +181,23 @@ const Description = styled(motion.p)`
 
 const ButtonGroup = styled.div`
   display: flex;
-  gap: 20px;
-  margin-bottom: 40px;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 30px;
+  align-items: center;
   
-  @media (max-width: 768px) {
-    flex-direction: column;
-    align-items: center;
+  @media (min-width: 480px) {
+    gap: 20px;
+    margin-bottom: 40px;
+  }
+  
+  @media (min-width: 768px) {
+    flex-direction: row;
+    justify-content: center;
+  }
+  
+  @media (min-width: 1024px) {
+    justify-content: flex-start;
   }
 `;
 
